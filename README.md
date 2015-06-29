@@ -1,2 +1,2 @@
 # evothings-clasp
-Evothings BLE Clasp chart
+Connects to RFDuino-based clasp wristband to display live output on a smoothie chart.
