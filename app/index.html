@@ -23,6 +23,11 @@
 	.lead {
 		font-weight: bold;
 	}
+	#chartbg {
+		background-color:black;
+		width:1000;
+
+	}
 	</style>
 
 	<script>
@@ -53,7 +58,9 @@
 		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
 	</header>
 
-
+	<div id="chartbg">
+		<canvas id="chart" width="400" height="200"></canvas>
+	</div>
 
 	<p id="info" class="lead">Initializing...</p>
 
@@ -64,11 +71,11 @@
 		Disconnect
 	</button>
 
-	<br />
+	
 
-	<button id="readcounter" type="button" class="green" onclick="app.readCount()">
+	<!--<button id="readcounter" type="button" class="green" onclick="app.readCount()">
 		Read Counter
-	</button>
+	</button>-->
 	<button id="subscribe" type="button" class="green" onclick="app.subscribe()">
 		Subscribe
 	</button>
@@ -79,7 +86,7 @@
 	<br />
 
 
-<canvas id="chart" width="300" height="300"></canvas>
+
 	<!-- JavaScript code for the app -->
 
 	<script>
@@ -95,8 +102,10 @@
      // }, 500);
       
     
-    var chart = new SmoothieChart({maxValue:1000,minValue:500});
-    chart.addTimeSeries(random, { strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 4 });
+    var chart = new SmoothieChart({millisPerPixel:25,labels:{disabled:true},maxValue:1000,minValue:500,grid:
+
+    	{fillStyle:'transparent',strokeStyle:'transparent',verticalSections:20,borderVisible:false}});
+    chart.addTimeSeries(random, { strokeStyle: 'rgba(0, 255, 0, 1)', lineWidth: 4 });
     chart.streamTo(document.getElementById("chart"));
 
 
@@ -107,7 +116,7 @@
 	$("#unsubscribe").hide();
 	//$("#ledoff").hide();
 	$("#subscribe").hide();
-	$("#readcounter").hide();
+	//$("#readcounter").hide();
 	//$("#ledon").hide();
 	$("#connect").hide();
 
@@ -157,8 +166,8 @@
 					$("#connect").hide();
 					$("#disconnect").show();
 					$("#subscribe").show();
-					$("#readcounter").show();
-					$("#ledon").show();
+					//$("#readcounter").show();
+					//$("#ledon").show();
 
 				},
 				function(errorCode)
@@ -176,10 +185,10 @@
 
 		$("#disconnect").hide();
 		$("#unsubscribe").hide();
-		$("#ledoff").hide();
+		//$("#ledoff").hide();
 		$("#subscribe").hide();
-		$("#readcounter").hide();
-		$("#ledon").hide();
+		//$("#readcounter").hide();
+		//$("#ledon").hide();
 		$("#connect").show();
 	};
 

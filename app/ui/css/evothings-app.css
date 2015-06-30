@@ -348,12 +348,12 @@ input.btn-group {
 }
 
 canvas {
-	padding: 7px;
+	padding: 0px;
 
-	border-radius: 4px;
+	border-radius: 0px;
 	border: none;
 
-	background-color: #f3f3f3; /* Default color: "Arctic" */
+	background-color: #000000; /* Default color: "Arctic" */
 }
 
 figcaption {
